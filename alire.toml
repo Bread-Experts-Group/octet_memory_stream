@@ -4,8 +4,8 @@ version = "1.0.0"
 long-description = """
 `octet_memory_stream` provides a standalone `Ada.Streams.Root_Stream_Type`
 wrapper around an `Octet_Array` (array of 8-bit bytes,) primarily for the
-purpose of protecting an over-arching stream from misalignment while reading or
-writing from, e.g., a file format.
+purpose of protecting an over-arching stream from misalignment while reading
+from, or writing to, e.g., a file format.
 
 If the `Memory_Stream` detects an out-of-bounds error as the result of a read
 or write operation, an `Out_Of_Bounds_Error` exception will be raised.
