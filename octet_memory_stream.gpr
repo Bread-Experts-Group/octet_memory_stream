@@ -14,8 +14,25 @@ project Octet_Memory_Stream is
      external ("OCTET_MEMORY_STREAM_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
    for Library_Kind use Library_Type;
 
+   package Builder is
+      for Switches ("Ada") use ("-m", "-d", "-s", "-j0");
+   end Builder;
+
    package Compiler is
-      for Default_Switches ("Ada") use Octet_Memory_Stream_Config.Ada_Compiler_Switches;
+      for Switches ("Ada") use
+         Octet_Memory_Stream_Config.Ada_Compiler_Switches & ("-gnat2022",
+          "-gnatwh",
+          "-gnatw.h",
+          "-gnatwl",
+          "-gnatwo",
+          "-gnatw.o",
+          "-gnatw.q",
+          "-gnatw_q",
+          "-gnatw_r",
+          "-gnatw.s",
+          "-gnatw_s",
+          "-gnatwt",
+          "-gnatw.u");
    end Compiler;
 
    package Binder is
