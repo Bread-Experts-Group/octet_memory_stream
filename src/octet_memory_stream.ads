@@ -8,13 +8,21 @@ package Octet_Memory_Stream is
 
    type Octet_Array is array (Stream_Element_Offset range <>) of Octet;
 
-   type Octet_Array_Access is not null access Octet_Array;
+   type Octet_Array_Access is access Octet_Array;
 
    type Memory_Stream is limited private;
 
    type Stream_Access is access all Ada.Streams.Root_Stream_Type'Class;
 
+   type Memory_Stream_Access is access all Memory_Stream;
+
    function To_Stream (Of_Array : Octet_Array) return Stream_Access;
+
+   function To_Octet_Array (From : String) return Octet_Array;
+
+   function Index (Stream : Stream_Access) return Stream_Element_Offset;
+
+   procedure Free (Stream : out Stream_Access);
 
 private
 
